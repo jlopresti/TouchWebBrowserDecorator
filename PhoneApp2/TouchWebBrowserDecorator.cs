@@ -29,6 +29,7 @@ namespace PhoneApp2
 
             //PanZoomContainer parent (handle event to set handled to false and bubble up event)
             var parentBorder = _webBrowser.Descendants<Border>().Skip(1).First();
+            parentBorder.AddHandler(FrameworkElement.ManipulationStartedEvent, new EventHandler<ManipulationStartedEventArgs>(wb_ManipulationStarted), true);
             parentBorder.AddHandler(FrameworkElement.ManipulationDeltaEvent, new EventHandler<ManipulationDeltaEventArgs>(wb_ManipulationDelta), true);
             parentBorder.AddHandler(FrameworkElement.ManipulationCompletedEvent, new EventHandler<ManipulationCompletedEventArgs>(wb_ManipulationCompleted), true);
         }
@@ -40,6 +41,11 @@ namespace PhoneApp2
 
             if (e.CumulativeManipulation.Scale.X != 0.0 || e.CumulativeManipulation.Scale.Y != 0.0)
                 e.Handled = true;
+        }
+        
+        private void wb_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
+        {
+            e.Handled = false;
         }
 
         private void wb_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)

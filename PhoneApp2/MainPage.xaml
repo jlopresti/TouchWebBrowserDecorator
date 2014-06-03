@@ -16,19 +16,19 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-    	<phone:Pivot Title="pivot" x:Name="pivot">
-            <phone:Pivot.RenderTransform>
+    	<phone:Panorama Title="pivot" x:Name="pivot">
+            <phone:Panorama.RenderTransform>
                 <TranslateTransform x:Name="xTranslate"/>
-            </phone:Pivot.RenderTransform>
-    		<phone:PivotItem CacheMode="{x:Null}" Header="item1">
+            </phone:Panorama.RenderTransform>
+            <phone:PanoramaItem CacheMode="{x:Null}" Header="item1">
     			<Grid>
                     <phone:WebBrowser Source="http://www.google.fr" x:Name="wb" />
     			</Grid>
-    		</phone:PivotItem>
-    		<phone:PivotItem CacheMode="{x:Null}" Header="item2">
+    		</phone:PanoramaItem>
+            <phone:PanoramaItem CacheMode="{x:Null}" Header="item2">
     			<Grid/>
-    		</phone:PivotItem>
-    	</phone:Pivot>
+    		</phone:PanoramaItem>
+    	</phone:Panorama>
 
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
